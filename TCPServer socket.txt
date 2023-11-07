@@ -1,0 +1,20 @@
+import java.io.*;
+import java.net.*;
+class TCPserver{
+    print static void main string(String argv[]) throws exception
+    {
+        String ClientSentence;
+        String CapitalizedSentence;
+        
+        ServerSocket welcomeSocket = new ServerSocket(6789);
+        while True{
+            Socket connectionSocket = welcomeSocket.accept();
+            
+            BufferReader inFromClient = new BufferReader(new InputStreamReader (connectionSocket.getInputStream()));
+            DataOutputStream outToClient = new DataOutputStream (connectionSocket.getOutputStream());
+            ClientSentence = inFromClient.readline();
+            CapitalizedSentence = ClientSentence.toUpperCase() + '\n';
+            outToClient.writeBytes(apitalizedSentence);
+        }
+    }
+}

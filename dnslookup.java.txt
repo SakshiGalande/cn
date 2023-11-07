@@ -1,0 +1,42 @@
+import java.net.*;
+import java.util.*;
+public class IPDemo
+{
+public static void main(String[] args){
+String host;
+Scanner ch = new Scanner(System.in);
+System.out.print(&quot;1.Enter Host Name \n2.Enter IP address \nChoice=&quot;);
+int choice = ch.nextInt();
+if(choice==1)
+{
+Scanner input = new Scanner(System.in);
+System.out.print(&quot;\n Enter host name: &quot;);
+host = input.nextLine();
+try {
+InetAddress address = InetAddress.getByName(host);
+System.out.println(&quot;IP address: &quot; + address.getHostAddress());
+System.out.println(&quot;Host name : &quot; + address.getHostName()); 
+System.out.println(&quot;Host name and IP address: &quot; + address.toString());
+}
+catch (UnknownHostException ex) {
+     System.out.println(&quot;Could not find &quot; + host);
+}
+}
+else
+{
+Scanner input = new Scanner(System.in);
+System.out.print(&quot;\n Enter IP address: &quot;);
+host = input.nextLine();
+try {
+InetAddress address = InetAddress.getByName(host);
+System.out.println(&quot;Host name : &quot; + address.getHostName());
+System.out.println(&quot;IP address: &quot; + address.getHostAddress());
+System.out.println(&quot;Host name and IP address: &quot; + address.toString());
+}
+catch (UnknownHostException ex) {
+     System.out.println(&quot;Could not find &quot; + host);
+}
+}
+
+}
+}

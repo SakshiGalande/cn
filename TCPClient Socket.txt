@@ -1,0 +1,18 @@
+import java.io.*;
+import java.net.*;
+class TCPClient{
+    public static void main(String argv[]) throws exception
+    {
+        String Sentence;
+        String modifiedSentence;
+        BufferReader inFromUser = new BufferReader(new InputStreamReader(system.in));
+        Socket ClientSocket = new Socket("localhost",6789);
+        DataOutputStream outToServer = new DataOutputStream(ClientSocket.getOutputStream());
+        BufferedReader inFromServer = new BufferedReader(new InputstreamReader(clientSocket.getInputStream()));
+        sentence = inFromUser.readline();
+        outToServer.writeBytes(sentence+'\n');
+        modifiedSentence = inFromServer.readline();
+        system.out.println("FROM SERVER: " + modifiedSentence);
+        clientSocket.close();
+    }
+}
